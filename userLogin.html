@@ -1,0 +1,56 @@
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="styles.css" />
+<!--		<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap-responsive.css">-->
+<!--<link href="http://moodle.bidedu.fi/theme/standard/styles.php" type="text/css" rel="stylesheet">-->
+<!--<link href="http://moodle.bidedu.fi/theme/bidedu/styles.php" type="text/css" rel="stylesheet">-->
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	</head>
+	<body>
+		<div id="header">
+			<h1>To-Do.It</h1>
+		</div>
+		<div id="menu" style="width:100px;float:left;">
+			<a href="userAdd.html">Add user</a> <br />
+			<a href="userLogin.html">Login</a>
+		</div>
+		<div id="container">
+			<div id="lomake">	
+				<form id="mform1" class="mform" enctype="multipart/form-data" action="userAdd.html" method="get">
+					<fieldset class="clearfix">
+						<legend class="ftoggler">Login</legend>
+						<div class="fcontainer clearfix">
+							<div class="fitem required">
+								<div class="fitemtitle">
+									<label for="id_username">Username:</label>
+								</div>
+								<div class="felement ftext">
+									<input maxlength="100" size="30" name="username" type="text" value="" onblur="validate_user_edit_form_email(this)" onchange="validate_user_edit_form_email(this)" id="id_username" />
+								</div>
+							</div>
+							<div class="fitem required">
+								<div class="fitemtitle">
+									<label for="id_password">Password: </label>
+								</div>
+								<div class="felement ftext">
+									<input maxlength="100" size="30" name="password" type="password" value="" id="id_password" />
+								</div>
+							</div>
+						</div>
+					</fieldset>
+					<div class="fitem">
+						<div class="fitemtitle">
+							<label for="id_submitbutton"> </label>
+						</div>
+						<div class="felement fsubmit">
+							<input id="id_newbutton" type="submit" value="New user"/> 
+							<input id="id_submitbutton" type="submit" value="Go"/>
+							<input type="submit" value="Cancel"/>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</body>
+</html>
+
