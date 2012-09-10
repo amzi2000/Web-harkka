@@ -1,15 +1,51 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <title>To Do List</title>
-    </head>
-    <body>
-        <h1>To Do List</h1>
-        
-        <p> <a href="login.html"> login </a> </p>
-        <p> <a href="newUser.html"> new user </a> </p>
-        
-    </body>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<link rel="stylesheet" type="text/css" href="styles.css" />
+		<script type="text/javascript" src="buttons.js"></script>
+	</head>
+	<body>
+		<div id="header">
+			<h1>To-Do.It</h1>
+		</div>
+		<div id="container">
+			<div id="lomake">	
+				<form id="mform1" class="mform" enctype="multipart/form-data" action="userAdd.html" method="get">
+					<fieldset class="clearfix">
+						<legend class="ftoggler">Login</legend>
+						<div class="fcontainer clearfix">
+							<div class="fitem required">
+								<div class="fitemtitle">
+									<label for="id_username">Username:</label>
+								</div>
+								<div class="felement ftext">
+									<input maxlength="100" size="30" name="username" type="text" value="" onblur="validate_user_edit_form_email(this)" onchange="validate_user_edit_form_email(this)" id="id_username" />
+								</div>
+							</div>
+							<div class="fitem required">
+								<div class="fitemtitle">
+									<label for="id_password">Password: </label>
+								</div>
+								<div class="felement ftext">
+									<input maxlength="100" size="30" name="password" type="password" value="" id="id_password" />
+								</div>
+							</div>
+						</div>
+					</fieldset>
+					<div class="fitem">
+						<div class="fitemtitle">
+							<label for="id_submitbutton"> </label>
+						</div>
+					</div>
+				</form>
+				<button id="bLogin"   style="font-size: 1.4em; float:right;" onclick="openListView()"> Go</button>
+				<button id="bNewUser" style="font-size: 1.4em; float:right;" onclick="createNewUser()">New User</button>
+				<button id="bCancel"  style="font-size: 1.4em; float:right;" onclick="goToMain()">     Cancel</button>
+			</div>
+		</div>
+	</body>
 </html>
+
+

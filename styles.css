@@ -411,6 +411,7 @@ span.hide, div.hide {
     margin: 0 auto;
     padding: 0;
     width: 80%;
+    font-size: 1.4em;
 }
 .mform fieldset {
     border: 1px solid #DDDDDD;
