@@ -21,24 +21,23 @@
 	<body>
 		<div id="header">
 			<h1>To-Do.It</h1>
-	
+		<div class="separatorLine">
+		</div>	
 			<button id="bNewTask" style="font-size: 1.4em; float:left;" onclick="addNewTask()"> Add New Task </button>
 			<button id="bEditTask" style="font-size: 1.4em; float:left;" onclick="editTask()"> Edit Task </button>
-			<button id="bDeleteTask" style="font-size: 1.4em; float:left;" onclick="deleteTask()"> Delete Task </button><br />
+			<button id="bDeleteTask" style="font-size: 1.4em; float:none;" onclick="deleteTask()"> Delete Task </button><br />
 		</div>
 
-		<div class="separatorLine">
-		</div>
-		<div class="demo">
-			<h2>Name                     Responsible</h2>
+		<div class="demo" style="float:none">
+			<br />
 		</div>        
 		<div class="separatorLine"style="float:none">
 		</div>
 		<div id="content">
- 				<ol id="selectable_list" class="ui-selectable">
+ 				<table id="selectable_list" class="ui-selectable">
 
 
- 				</ol>
+ 				</table>
 		</div>
 	<button id="bTestTask" style="font-size: 1.4em; float:left;" onclick="addNewTestTask()"> Add New Task Test </button>
 

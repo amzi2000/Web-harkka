@@ -15,10 +15,36 @@ function MyToDoCollection (){
 	this.todo = new Array();
 	this.last = -1;
 
+
+	if(typeof(Storage)!=="undefined")
+	  {
+	  if (sessionStorage.toDoLast)
+	    {
+// Retrieve the object from storage
+		this.todo = JSON.parse(sessionStorage.getItem('toDoCollection'));
+		this.last = Number(sessionStorage.toDoLast);
+	    }
+	  }
+	else
+	  {
+	  //"Sorry, your browser does not support web storage...";
+	  }
+  
 	this.addToDo = function (toDo) {
 		// returns the index of inserted message
+
 		
 		this.todo[++this.last] = toDo;
+
+	if(typeof(Storage)!=="undefined") {
+    	// Put the object into storage
+		sessionStorage.setItem('toDoCollection', JSON.stringify(this.todo));
+		sessionStorage.toDoLast = this.last;
+		}
+	else {
+//"Sorry, your browser does not support web storage...";
+		}
+  
 		return this.last;
 	}
 	
@@ -29,6 +55,20 @@ function MyToDoCollection (){
 				this.todo[index] = this.todo[index + 1];
 			};
 		this.last--;
+
+		if(typeof(Storage)!=="undefined") {
+			if (sessionStorage.toDoLast)	
+				{
+		    	// Put the object into storage
+				sessionStorage.setItem('toDoCollection', JSON.stringify(this.todo));
+				sessionStorage.toDoLast = this.last;
+				}
+			}
+		else {
+//"Sorry, your browser does not support web storage...";
+			}
+	  
+
 		};
 	}
 
