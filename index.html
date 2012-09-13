@@ -6,7 +6,13 @@
 		<link rel="stylesheet" type="text/css" href="styles.css" />
 		<script type="text/javascript" src="buttons.js"></script>
 		<script type="text/javascript" src="./todo_class.js"></script>
-
+		<script>
+			function createNewUserName() {
+				var n = id_username.value;
+				storeNewName(n);
+				window.location = "userAdd.html";
+			}
+		</script>
 	</head>
 
 	<body>
@@ -52,7 +58,7 @@
 				<button id="bLogin"   style="font-size: 1.4em; float:right;" onclick="openListView()">
 					Go
 				</button>
-				<button id="bNewUser" style="font-size: 1.4em; float:right;" onclick="createNewUser()">
+				<button id="bNewUser" style="font-size: 1.4em; float:right;" onclick="createNewUserName()">
 					New User
 				</button>
 				<button id="bCancel"  style="font-size: 1.4em; float:right;" onclick="goToMain()">

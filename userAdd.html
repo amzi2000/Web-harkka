@@ -2,11 +2,25 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 		<link rel="stylesheet" type="text/css" href="styles.css" />
+		<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+		<script type="text/javascript" src="buttons.js"></script>
+		<script>
+			function onloadAddUser() {
+				var a = getStoredName();
+				var cu = document.getElementById("currentUser");
+				var iu = document.getElementById("id_username");
+				$("#currentUser").html(a);
+				$("#id_username").value = a;
+				//location.reload();
+			}
+		</script>
 	</head>
-	<body>
+	<body onload="onloadAddUser()">
 		<div id="header">
 			<h1>To-Do.It</h1>
 		</div>
+
+		<p id="currentUser" onpropertychange="onpropertychangeCurrentUser()">Start</p>
 
 		<div id="container">
 			<div id="lomake">	

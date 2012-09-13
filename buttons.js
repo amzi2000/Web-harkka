@@ -4,12 +4,12 @@ function openListView() {
 }
 
 function createNewUser() {
-	// open listView.html
+	// open userAdd.html
 	window.location = "userAdd.html";
 }
 
 function goToMain() {
-	// open listView.html
+	// open index.html
 	window.location = "index.html";
 }
 
@@ -19,4 +19,16 @@ function addNewTask() {
 
 function deleteTask() {
 	deleteTestTask();
+}
+
+function storeNewName (newName) {
+	var d = document.getElementById('currentUser');
+	localStorage.currentUser = newName;
+	console.log(newName);
+	
+}
+
+function getStoredName() {
+	var a = localStorage.currentUser;
+	return a;
 }
