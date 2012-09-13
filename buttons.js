@@ -16,3 +16,7 @@ function goToMain() {
 function addNewTask() {
 	window.location = "add_new_task.html";
 }
+
+function deleteTask() {
+	deleteTestTask();
+}
