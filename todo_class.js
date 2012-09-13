@@ -115,12 +115,12 @@ function list_draw() {
 	var Adescription = new Array();
 	var Astatus = new Array();
 	var Aresponsible = new Array();
-
-
+	var padding1 = "";
+	var padding2 = "";
 
 	if (n == 0) {/* draw empty list */
 
-		document.getElementById("listarea").innerHTML = "The list is empty "
+		document.getElementById("selectable_list").innerHTML = "The list is empty "
 
 	} else {
 		Aname = JSON.parse(localStorage['names']);
@@ -128,11 +128,20 @@ function list_draw() {
 		Astatus = JSON.parse(localStorage['statuses']);
 		Aresponsible = JSON.parse(localStorage['responsibles']);
 
-		document.getElementById("listarea").innerHTML = "";
+		document.getElementById("selectable_list").innerHTML = "";
 
-		for ( i = 0; i < n; i++) {
+		for ( i = 0; i < n; i++, padding1 = "", padding2 = "") {
 
-			document.getElementById("listarea").innerHTML = document.getElementById("listarea").innerHTML + "<br />" + Aname[i] + "  " + Aresponsible[i] + "   " + Astatus[i];
+			/* elegant hard coded values instead of CSS - fix later */
+			for ( j = 0; j < 35 - Aname[i].length; j++) {
+				padding1 = padding1 + " ";
+			}
+
+			for ( j = 0; j < 22 - Aresponsible[i].length; j++) {
+				padding2 = padding2 + " ";
+			}
+
+			document.getElementById("selectable_list").innerHTML = document.getElementById("selectable_list").innerHTML + "<li><pre>" + Aname[i] + padding1 + Aresponsible[i] + padding2 + Astatus[i] + "</pre></li>";
 
 		}
 
