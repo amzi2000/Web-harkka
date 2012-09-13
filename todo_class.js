@@ -2,72 +2,106 @@
  * @author Juha
  */
 
-var i;
-var Data = new Array();
-var mainIndex; 
+//function list_item(index, taskName, taskDesc, status, responsible) {
+//	this.taskIndex = index;
+//	this.taskName = taskName;
+//	this.taskDescription = taskDesc;
+//	this.status = status;
+//	this.responsible = responsible;
 
-
-
-function list_item(index, taskName, taskDesc, status, responsible) {
-	this.taskIndex = index;
-	this.taskName = taskName;
-	this.taskDescription = taskDesc;
-	this.status = status;
-	this.responsible = responsible;
-
-	/* debug */
+/* debug */
 //	document.write("new item");
 
-}
+// }
 
+//function todo_list() {
 
-function todo_list() {
+//	this.list_init = list_init;
+//	this.list_draw = list_draw;
+//	this.list_add = list_add;
+//	this.list_delete = list_delete;
 
-	mainIndex = 0; 
-	
-	this.list_init = list_init;
-	this.list_draw = list_draw;
-	this.list_add = list_add;
-	this.list_delete = list_delete;
-
-	/* debug */
+/* debug */
 //	document.write("constructor");
 
-}
-
+//}
 
 function list_init() {
-	/* TBA, initialisation from file or server code here */
-	/* Currently always creates an empty list */
-	mainIndex = 0;
 
+	if (localStorage.mainIndex == undefined) {
+		localStorage.mainIndex = 0;
+	}
 	/* debug */
-//	document.write("init");
+	//	document.write("init");
 
 }
 
 function list_add(name, description, status, responsible) {
 
+	/* convert mainIndex to a number */
+	var n = parseInt(localStorage.mainIndex);
+	var Aname = new Array();
+	var Adescription = new Array();
+	var Astatus = new Array();
+	var Aresponsible = new Array();
 
-    Data[mainIndex] = new list_item(mainIndex, name, description, status, responsible);
+	if (n > 0) {
+		Aname = JSON.parse(localStorage['names']);
+		Adescription = JSON.parse(localStorage['descriptions']);
+		Astatus = JSON.parse(localStorage['statuses']);
+		Aresponsible = JSON.parse(localStorage['responsibles']);
+	}
 
-	mainIndex = mainIndex + 1;
+	Aname[n] = name;
+	Adescription[n] = description;
+	Astatus[n] = status;
+	Aresponsible[n] = responsible;
+
+	n = n + 1;
+
+	localStorage.mainIndex = n;
+	localStorage['names'] = JSON.stringify(Aname);
+	localStorage['descriptions'] = JSON.stringify(Adescription);
+	localStorage['statuses'] = JSON.stringify(Astatus);
+	localStorage['responsibles'] = JSON.stringify(Aresponsible);
 
 	/* debug */
-//	document.write("list add");
+	// document.write("list add");
 
 }
 
 function list_delete(index) {
-	for ( i = 0; i < mainIndex; i++) {
+
+	var n = parseInt(localStorage.mainIndex);
+	var Aname = new Array();
+	var Adescription = new Array();
+	var Astatus = new Array();
+	var Aresponsible = new Array();
+
+	if (n > 0) {
+		Aname = JSON.parse(localStorage['names']);
+		Adescription = JSON.parse(localStorage['descriptions']);
+		Astatus = JSON.parse(localStorage['statuses']);
+		Aresponsible = JSON.parse(localStorage['responsibles']);
+	}
+
+	for ( i = 0; i < n; i++) {
 		if (i > index) {
-			/* remove reference to todo_list[index] */
-			Data[i - 1] = Data[i];
-			Data[i - 1].taskIndex = i - 1;
+			/* remove reference to [index] */
+			Aname[i - 1] = Aname[i];
+			Adescription[i - 1] = Adescription[i];
+			Astatus[i - 1] = Astatus[i];
+			Aresponsible[i - 1] = Aresponsible[i];
 		}
-		mainIndex = mainIndex - 1;
 
 	}
+
+	n = n - 1;
+	localStorage.mainIndex = n;
+	localStorage['names'] = JSON.stringify(Aname);
+	localStorage['descriptions'] = JSON.stringify(Adescription);
+	localStorage['statuses'] = JSON.stringify(Astatus);
+	localStorage['responsibles'] = JSON.stringify(Aresponsible);
 
 	/* debug */
 	//document.write("list del");
@@ -76,22 +110,31 @@ function list_delete(index) {
 
 function list_draw() {
 
+	var n = parseInt(localStorage.mainIndex);
+	var Aname = new Array();
+	var Adescription = new Array();
+	var Astatus = new Array();
+	var Aresponsible = new Array();
 
-	if (mainIndex == 0) {/* draw empty list */
 
-		document.getElementById("listarea").innerHTML = "The list is empty"
+
+	if (n == 0) {/* draw empty list */
+
+		document.getElementById("listarea").innerHTML = "The list is empty "
 
 	} else {
+		Aname = JSON.parse(localStorage['names']);
+		Adescription = JSON.parse(localStorage['descriptions']);
+		Astatus = JSON.parse(localStorage['statuses']);
+		Aresponsible = JSON.parse(localStorage['responsibles']);
 
+		document.getElementById("listarea").innerHTML = "";
 
-		for (i=0;i<mainIndex; i++)
-		{
+		for ( i = 0; i < n; i++) {
 
-		document.getElementById("listarea").innerHTML = Data[i].taskName + "  " + Data[i].responsible + "   " + Data[i].status;			
-			
-//		document.getElementById("listarea").innerHTML = Data[i].list_item.taskName + Data[i].list_item.responsible + Data[i].list_item.status;			
+			document.getElementById("listarea").innerHTML = document.getElementById("listarea").innerHTML + "<br />" + Aname[i] + "  " + Aresponsible[i] + "   " + Astatus[i];
+
 		}
-
 
 	}
 
@@ -99,5 +142,4 @@ function list_draw() {
 	//document.write("list draw");
 
 }
-
 

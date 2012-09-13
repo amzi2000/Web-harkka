@@ -5,16 +5,25 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 		<link rel="stylesheet" type="text/css" href="styles.css" />
 		<script type="text/javascript" src="buttons.js"></script>
+		<script type="text/javascript" src="./todo_class.js"></script>
+
 	</head>
+
 	<body>
+		<script type="text/javascript">
+			list_init();
+		</script>
+
 		<div id="header">
 			<h1>To-Do.It</h1>
 		</div>
 		<div id="container">
-			<div id="lomake">	
+			<div id="lomake">
 				<form id="mform1" class="mform" enctype="multipart/form-data" action="userAdd.html" method="get">
 					<fieldset class="clearfix">
-						<legend class="ftoggler">Login</legend>
+						<legend class="ftoggler">
+							Login
+						</legend>
 						<div class="fcontainer clearfix">
 							<div class="fitem required">
 								<div class="fitemtitle">
@@ -40,12 +49,17 @@
 						</div>
 					</div>
 				</form>
-				<button id="bLogin"   style="font-size: 1.4em; float:right;" onclick="openListView()"> Go</button>
-				<button id="bNewUser" style="font-size: 1.4em; float:right;" onclick="createNewUser()">New User</button>
-				<button id="bCancel"  style="font-size: 1.4em; float:right;" onclick="goToMain()">     Cancel</button>
+				<button id="bLogin"   style="font-size: 1.4em; float:right;" onclick="openListView()">
+					Go
+				</button>
+				<button id="bNewUser" style="font-size: 1.4em; float:right;" onclick="createNewUser()">
+					New User
+				</button>
+				<button id="bCancel"  style="font-size: 1.4em; float:right;" onclick="goToMain()">
+					Cancel
+				</button>
 			</div>
 		</div>
 	</body>
 </html>
-
 
