@@ -8,26 +8,50 @@
 
 		<h1>Edit task</h1>
 
-		<form action="listView.html" onsubmit="list_modify(n, txtTaskName.value, txtTaskDescription.value, selTaskStatus.value, txtTaskResponsible.value);">
-			Name:
+		<form action="listView.html" class="mform" onsubmit="list_modify(n, txtTaskName.value, txtTaskDescription.value, selTaskStatus.value, txtTaskResponsible.value);">
+			<fieldset class="clearfix">
+			<legend class="ftoggler">Add new task</legend>
+			<div class="fitemtitle">
+			<label for="id_taskname">Name: </label>
+			</div>
+			<div  class="felement ftext">
 			<input type="text" name="txtTaskName" value="" size="30" maxlength="30" id="editName"/>
+			</div>
 			<br />
+			<div class="fitemtitle">
 			Responsible:
+			</div>
+			<div  class="felement ftext">
 			<input type="text" name="txtTaskResponsible" value="" size="30" maxlength="30" id="editResponsible" />
+			</div>
 			<br />
-			Status:
+			<div class="fitemtitle">
+			Status: 
+			</div>
+			<div  class="felement ftext">
 			<select name="selTaskStatus" id="editStatus">
 				<option selected="selected" value="notStarted">Not started</option>
 				<option value="started">Started</option>
 				<option value="done">Done</option>
 			</select>
+			</div>
 			<br />
+			<div class="fitemtitle">
 			Description:
-			<br />
+			</div>
+			<div  class="felement ftext">
 			<textarea name="txtTaskDescription" rows="20" cols="50" id="editDescription"></textarea>
-			<br />
+			</div>
+			</fieldset>
+			<div class="fitem">
+			<div class="fitemtitle">
+			<label for="id_submitbutton"> </label>
+			</div>
+			<div class="felement fsubmit">
 			<input type="submit" value="Submit" />
 			<a href="listView.html">Cancel</a>
+			</div>
+			</div>
 
 			<!-- JRAut: Priority to be added to future version
 			Priority:
