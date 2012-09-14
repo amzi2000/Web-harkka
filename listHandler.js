@@ -120,11 +120,11 @@ $(function() {
 		        $(event.target).children('.ui-selected').removeClass('ui-selected'); // disable multiselection
 			},
 		    selecting: function (event, ui) {
-		        $(event.target).children('.item_header_row').removeClass('ui-selecting'); // disable header row selection
+//		        $(event.target).children('.item_header_row').removeClass('ui-selecting'); // disable header row selection
 		        $(event.target).children('.ui-selecting').not(':first').removeClass('ui-selecting'); // disable multiselection by dragging mouse
 			},
 			stop: function(event, ui) {
-		        $(event.target).children('.item_header_row').removeClass('ui-selected'); // disable header row selection
+//		        $(event.target).children('.item_header_row').removeClass('ui-selected'); // disable header row selection
 				last_index_selected = $(event.target).children('.ui-selected').index();
 			}
 		});
