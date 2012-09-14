@@ -93,16 +93,17 @@ function addNewTestTask() {
 	
 	toDoKokoelma.addToDo(toDo);
 
-	startDisplayRefresh() ;
+//	startDisplayRefresh() ;
 	
 }
 	
 function deleteTestTask() {
 	
 	if (last_index_selected >= 0){
-		toDoKokoelma.deleteToDo(last_index_selected);
-	
-		startDisplayRefresh() ;		
+//		toDoKokoelma.deleteToDo(last_index_selected);
+		list_delete(last_index_selected);
+//		startDisplayRefresh() ;		
+		list_draw();
 	}
 	last_index_selected = -1;
 }
@@ -151,10 +152,11 @@ $(function() {
 	});
 */
 
-	toDoKokoelma = new MyToDoCollection();
+//	toDoKokoelma = new MyToDoCollection();
 
-	startDisplayRefresh() ;
+//	startDisplayRefresh() ;
 
+	list_draw();
 				
 
 //Enf of file
