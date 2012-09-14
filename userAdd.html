@@ -7,10 +7,10 @@
 		<script>
 			function onloadAddUser() {
 				var a = getStoredName();
-				var cu = document.getElementById("currentUser");
+
 				var iu = document.getElementById("id_username");
-				$("#currentUser").html(a);
-				$("#id_username").value = a;
+
+				iu.value = a;
 				//location.reload();
 			}
 		</script>
@@ -19,8 +19,6 @@
 		<div id="header">
 			<h1>To-Do.It</h1>
 		</div>
-
-		<p id="currentUser" onpropertychange="onpropertychangeCurrentUser()">Start</p>
 
 		<div id="container">
 			<div id="lomake">	
