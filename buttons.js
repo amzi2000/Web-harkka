@@ -13,6 +13,22 @@ function goToMain() {
 	window.location = "index.html";
 }
 
+function deleteTask() {
+		deleteTestTask();
+	}
+	
+function getStoredName() {
+	var a = localStorage.currentUser;
+	return a;
+}
+
+function storeNewName (newName) {
+		var d = document.getElementById('currentUser');
+		localStorage.currentUser = newName;
+	console.log(newName);
+}
+
+
 function addNewTask() {
 	window.location = "add_new_task.html";
 }
