@@ -2,29 +2,33 @@
  * @author Juha
  */
 
-//function list_item(index, taskName, taskDesc, status, responsible) {
-//	this.taskIndex = index;
-//	this.taskName = taskName;
-//	this.taskDescription = taskDesc;
-//	this.status = status;
-//	this.responsible = responsible;
+function list_modify(index, name, description, status, responsible) {
 
-/* debug */
-//	document.write("new item");
+	/* convert mainIndex to a number */
+	var Aname = new Array();
+	var Adescription = new Array();
+	var Astatus = new Array();
+	var Aresponsible = new Array();
 
-// }
+	Aname = JSON.parse(localStorage['names']);
+	Adescription = JSON.parse(localStorage['descriptions']);
+	Astatus = JSON.parse(localStorage['statuses']);
+	Aresponsible = JSON.parse(localStorage['responsibles']);
 
-//function todo_list() {
+	Aname[index] = name;
+	Adescription[index] = description;
+	Astatus[index] = status;
+	Aresponsible[index] = responsible;
 
-//	this.list_init = list_init;
-//	this.list_draw = list_draw;
-//	this.list_add = list_add;
-//	this.list_delete = list_delete;
+	localStorage['names'] = JSON.stringify(Aname);
+	localStorage['descriptions'] = JSON.stringify(Adescription);
+	localStorage['statuses'] = JSON.stringify(Astatus);
+	localStorage['responsibles'] = JSON.stringify(Aresponsible);
 
-/* debug */
-//	document.write("constructor");
+	/* debug */
+	// document.write("list add");
 
-//}
+}
 
 function list_init() {
 

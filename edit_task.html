@@ -1,0 +1,73 @@
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<link rel="stylesheet" type="text/css" href="styles.css" />
+		<script type="text/javascript" src="./todo_class.js"></script>
+	</head>
+	<body>
+
+		<h1>Edit task</h1>
+
+		<form action="listView.html" onsubmit="list_modify(n, txtTaskName.value, txtTaskDescription.value, selTaskStatus.value, txtTaskResponsible.value);">
+			Name:
+			<input type="text" name="txtTaskName" value="" size="30" maxlength="30" id="editName"/>
+			<br />
+			Responsible:
+			<input type="text" name="txtTaskResponsible" value="" size="30" maxlength="30" id="editResponsible" />
+			<br />
+			Status:
+			<select name="selTaskStatus" id="editStatus">
+				<option selected="selected" value="notStarted">Not started</option>
+				<option value="started">Started</option>
+				<option value="done">Done</option>
+			</select>
+			<br />
+			Description:
+			<br />
+			<textarea name="txtTaskDescription" rows="20" cols="50" id="editDescription"></textarea>
+			<br />
+			<input type="submit" value="Create" />
+			<a href="listView.html">Cancel</a>
+
+			<!-- JRAut: Priority to be added to future version
+			Priority:
+			<input type="text" name="txtTaskPriority" value="" size="30" maxlength="30" />
+			JRaut comment ends -->
+
+		</form>
+
+		<script type="text/javascript">
+			var n = parseInt(sessionStorage.listIndex);
+			var Aname = new Array();
+			var Adescription = new Array();
+			var Astatus = new Array();
+			var Aresponsible = new Array();
+
+			Aname = JSON.parse(localStorage['names']);
+			Adescription = JSON.parse(localStorage['descriptions']);
+			Astatus = JSON.parse(localStorage['statuses']);
+			Aresponsible = JSON.parse(localStorage['responsibles']);
+
+			document.getElementById("editName").value = Aname[n];
+			document.getElementById("editDescription").innerHTML = Adescription[n];
+			document.getElementById("editResponsible").value = Aresponsible[n];
+
+			if (Astatus[n] == "notStarted"){
+			document.getElementById("editStatus").innerHTML = '<option selected="selected" value="notStarted">Not started</option><option value="started">Started</option><option value="done">Done</option>'
+
+			} 
+
+			if (Astatus[n] == "started"){
+			document.getElementById("editStatus").innerHTML = '<option value="notStarted">Not started</option><option selected="selected" value="started">Started</option><option value="done">Done</option>'
+			} 
+
+
+			if (Astatus[n] == "done"){
+			document.getElementById("editStatus").innerHTML = '<option value="notStarted">Not started</option><option value="started">Started</option><option value="done" selected="selected">Done</option>'
+			} 
+
+		</script>
+
+	</body>
+
+</html>
